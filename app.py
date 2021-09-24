@@ -21,14 +21,17 @@ def return_id(id):
 @app.route("/random/<n>")
 def teams(n):
     n = int(n)
-    liste = ["Camille", "Olivier", "Laurent", "Pascal", "Ludwig", "Noura","Anne-Charlotte","Charlène", "Malick","Tristan","Zeyno"]
-    random.shuffle(liste) #permet de mélanger la liste de façon aléatoire
-    ar = np.array(liste) # transformation de la liste en array
-    listegroup=np.array_split(ar,n)
-    groups = {}
-    i = 1
-    for l in listegroup:
-        key = "Groupe " + str(i)
-        groups[key] = list(l)
-        i+=1
-    return groups
+    if n < 1 or n > 11:
+        return "Utiliser une valeur entre 1 et 11"
+    else:
+        liste = ["Camille", "Olivier", "Laurent", "Pascal", "Ludwig", "Noura","Anne-Charlotte","Charlène", "Malick","Tristan","Zeyno"]
+        random.shuffle(liste) #permet de mélanger la liste de façon aléatoire
+        ar = np.array(liste) # transformation de la liste en array
+        listegroup=np.array_split(ar,n)
+        groups = {}
+        i = 1
+        for l in listegroup:
+            key = "Groupe " + str(i)
+            groups[key] = list(l)
+            i+=1
+        return groups
