@@ -13,3 +13,8 @@ def docs():
 def return_id(id):
     id = int(id) + 10
     return "Here is what was sent : " + str(id)
+
+@app.route("/random/<n>")
+def teams(n):
+    liste = ["Camille", "Olivier", "Laurent", "Charlene"]
+    return liste[n]
