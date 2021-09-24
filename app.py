@@ -16,5 +16,6 @@ def return_id(id):
 
 @app.route("/random/<n>")
 def teams(n):
+    n = int(n)
     liste = ["Camille", "Olivier", "Laurent", "Charlene"]
     return liste[n]
